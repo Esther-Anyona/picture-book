@@ -25,3 +25,5 @@ class Image(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        ordering = ['-date_posted'] # order images from latest
