@@ -56,7 +56,7 @@ class ImageTestClass(TestCase):
         
         self.image= Image(image='hallow', name='ugly', photographer='Anyona', description='not what I expected', location=self.location, category=self.category)
         self.image.save_image()
-        
+
     # Testing instance
     def test_instance(self):
         self.assertTrue(isinstance(self.image,Image))
@@ -72,3 +72,24 @@ class ImageTestClass(TestCase):
         self.image.delete_image()
         images=Image.objects.all()
         self.assertTrue(len(images)==0)
+
+    def test_update_image(self):
+        self.image.save_image()
+        self.image.update_image(self.image.id, 'images/image1.jpeg')
+        updated_image = Image.objects.filter(image='images/image2.jpeg')
+        self.assertFalse(len(updated_image) > 0)
+
+    def test_get_image_by_id(self):
+        image_found = self.image.get_image_by_id(self.image.id)
+        images = Image.objects.filter(id=self.image.id)
+        self.assertTrue(image_found, images)
+
+    def test_search_image_by_category(self):
+        category = 'nature'
+        image_found = self.image.search_by_category(category)
+        self.assertFalse(len(image_found) > 1) 
+
+    def test_filter_by_location(self):
+        self.image.save()
+        images_found = self.image.filter_by_location(location='Kenya')
+        self.assertFalse(len(images_found) > 0)  
