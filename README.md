@@ -1,5 +1,6 @@
 # Picture-Book
 <hr>
+
 # Author
 [Esther-Anyona](https://github.com/Esther-Anyona)
 <hr>
@@ -10,9 +11,13 @@
 This is a python django application for a personal gallery web app to display photos for others to see.
 
 ## Screenshots
-
+Homepage
 [homepage](pictures/static/assets/picture_book.png)
+
+Search Results
 [search](pictures/static/assets/category.png)
+
+Image Modal
 [modal](pictures/static/assets/modal.png)
 
 ## User Stories
