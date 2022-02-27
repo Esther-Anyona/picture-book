@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 body{
     background-image: url('../assets/bg_img.jpeg');
     background-size:cover;
@@ -9,9 +13,16 @@ body{
     background-color: rgb(96, 162, 206);
     z-index: 1;
 }
-a{
+.modal{
+    background-color: rgb(96, 162, 206);
+
+}
+a, button{
     text-decoration: none;
 }
 .fab{
     color:rgb(96,162,206);
+}
+span{
+    color: rgb(215,161,47);
 }

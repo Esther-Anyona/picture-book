@@ -1,31 +1,45 @@
 {% extends 'base.html' %}
 {% block content%}
 <div class="container-fluid">
-    <h1 class="text-center pt-5">My Picture Book</h1>
-    <div class="row">
-        {% for image in images %}
-        <div class="col-sm-2 col-md-2 col-lg-2 d-flex justify-content-center">
-            <div class="card text-center" style="width: 18rem;">
-                    <div class="card-title">
-                        <h3>{{image.name}}</h3>
-                    </div>
-                    <div class="card body">
-                        <div class="card-text">
-                        <img class="img-fluid rounded mx-auto d-block" src="{{image.image.url}}" alt="{{image.name}}" width="300" height="300">
-                            <p>Description: {{image.description}}</p>
-                            <p>Location: {{image.location}}</p>
-                            <p>Category: {{image.category}}</p>
-                        </div>
-                        <div class="card-footer">
-                            <p>Posted on {{image.date_posted}} by {{image.photographer}}</p>
-                        </div>
-                    </div>
-            </div>
+  <h1 style="color:rgb(96,162,206);" class="text-center pt-5"><strong>My Picture Book</strong></h1>
+  <div class="row">
+  
+    {% for image in images %}
+    <div class="col-sm-4 col-md-4 col-lg-3 d-flex justify-content-center mb-5">
+    <a href="#" id="img">
+        <img id="imgsmall" src="{{image.image.url}}" style="width: 300px; height: 250px;">
+    </a>
+    
+    <!-- Image modal -->
+    <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">{{image.name}}</h4>
+          </div>
+          <div class="modal-body">
+            <img src="" id="imgmodal" style="width: 450px; height: 380px;" >
+            <p>Description: {{image.description}}</p>
+            <p>Location: {{image.location}}</p>
+            <p>Category: {{image.category}}</p>
+          </div>
+          <div class="modal-footer">
+            <p>Posted on {{image.date_posted}} by {{image.photographer}}</p>
+          </div>
         </div>
-        {% endfor %}
+      </div>
+      </div>
     </div>
-</div>
+    <script>
+        $("#img").on("click", function() {
+       $('#imgmodal').attr('src', $('#imgsmall').attr('src'));
+       $('#imagemodal').modal('show'); 
+    });
+    $('button').click(function(){
+      $('#imagemodal').modal('hide');
+    });
 
+    </script>
+    {% endfor %}
 {% endblock %}
-
-

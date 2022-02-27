@@ -9,15 +9,15 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ">
                 <a class="nav-link active mx-5" aria-current="page" href="{% url 'home' %}">Home</a>
-                <a class="nav-link active mx-5" aria-current="page" href="#">Locations</a> 
-            </div>       
+                <a class="nav-link" href="admin/pictures/image/add/">Admin Dashboard</a>
+            </div>         
         </div>
         <div class="col-sm-4 col-md-4 navbar-right">
             <form action="{% url 'search_images' %}" class="navbar-form">
-                <div class="form-inline">
-                    <input type="text" class="form-control" placeholder="Search Images" name="images">
+                <div class="input-group">
+                    <input type="text" class="form-control mx-2" placeholder="Search Images" name="images">
                     <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit">Search</button>
+                        <button class="btn btn-light" type="submit"><i class="fas fa-search"></i>search</button>
                     </div>
                 </div>
             </form>
