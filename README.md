@@ -40,6 +40,7 @@ After cloning, in the terminal:
 * $ python3 -m venv virtual - to create a virtual environment
 * $ source virtual/bin/activate - to activate virtual environment
 * $ pip install django==4.0.2
+* $ pip install psycopg2 to connect to postgres
 * $ Install pillow, and other django dependencies
 * $ python manage.py test - to run test
 * $ Open the application on your browser 127.0.0.1:5000 to view by running 'python manage.py runserver'
