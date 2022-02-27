@@ -26,6 +26,7 @@
           </div>
           <div class="modal-footer">
             <p>Posted on {{image.date_posted}} by {{image.photographer}}</p>
+            <button value="{{image.image.url}}" onclick="copyToClipboard(this.value)">Copy Link</button>
           </div>
         </div>
       </div>
@@ -40,6 +41,15 @@
       $('#imagemodal').modal('hide');
     });
 
+    function copyToClipboard(text) {
+    var inputc = document.body.appendChild(document.createElement("input"));
+    inputc.value = window.location.href;
+    inputc.focus();
+    inputc.select();
+    document.execCommand('copy');
+    inputc.parentNode.removeChild(inputc);
+    alert("URL Copied.");
+    }
     </script>
     {% endfor %}
 {% endblock %}
