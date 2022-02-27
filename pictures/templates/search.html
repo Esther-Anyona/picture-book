@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
-{% block content%}
-<div class="container-fluid">
-    <h1 class="text-center pt-5">My Picture Book</h1>
+{% block content %}
+<div class="container-fluid pt-5 mt-5">
+    <div class="row pb-3 text-center">
+        {% if images %}
+            <h2 style="color:rgb(96,162,206)"><strong>Found {{ images|length }} images in {{ message }} category</strong></h2>
+        {% else %}
+            <h2 style="color:rgb(96,162,206)"> <strong>Found 0 images for your search {{ message }}</strong></h2>
+        {% endif %}      
+    </div>
     <div class="row">
-        {% for image in images %}
-        <div class="col-sm-2 col-md-2 col-lg-2 d-flex justify-content-center">
+        {% if images %}
+          {% for image in images %}
+          <div class="col-sm-4 col-md-4 col-lg-4 d-flex justify-content-center">
             <div class="card text-center" style="width: 18rem;">
                     <div class="card-title">
                         <h3>{{image.name}}</h3>
@@ -22,10 +29,11 @@
                     </div>
             </div>
         </div>
-        {% endfor %}
+          {% endfor %}
+        {% endif %}
+        <a class="d-flex justify-content-center mx-auto py-5" href="/">
+            <button class="btn btn-dark btn-sm" style="font-size:18px">Home <i class="fa fa-angle-double-left"></i></button>
+        </a>
     </div>
 </div>
-
 {% endblock %}
-
-

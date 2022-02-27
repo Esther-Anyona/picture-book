@@ -93,3 +93,8 @@ class ImageTestClass(TestCase):
         self.image.save()
         images_found = self.image.filter_by_location(location='Kenya')
         self.assertFalse(len(images_found) > 0)  
+
+    def tearDown(self):
+        Image.objects.all().delete()
+        Location.objects.all().delete()
+        Category.objects.all().delete()

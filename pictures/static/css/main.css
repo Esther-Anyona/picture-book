@@ -1,6 +1,17 @@
 body{
-    background-image: url('../bg_img.jpeg');
+    background-image: url('../assets/bg_img.jpeg');
     background-size:cover;
     background-repeat:no-repeat;
     background-position:center center;    
+}
+
+.card{
+    background-color: rgb(96, 162, 206);
+    z-index: 1;
+}
+a{
+    text-decoration: none;
+}
+.fab{
+    color:rgb(96,162,206);
 }
