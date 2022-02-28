@@ -2,7 +2,9 @@ from django.test import TestCase
 from .models import Location, Category, Image
 
 # Create your tests here.
-
+"""
+Test methods for location
+"""
 class LocationTestClass(TestCase):
     def setUp(self):
         self.location = Location(name='Kenya')
@@ -11,7 +13,9 @@ class LocationTestClass(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.location, Location))
 
-    # Testing save method
+    """ 
+    Testing save method 
+    """
     def test_save(self):
         self.location.save_location()
         locations=Location.objects.all()
@@ -23,7 +27,9 @@ class LocationTestClass(TestCase):
         locations=Location.objects.all()
         self.assertTrue(len(locations)==0)
 
-
+"""
+Test methods for category
+"""
 class CategoryTestClass(TestCase):
     def setUp(self):
         self.category = Category(name='nature')
@@ -43,7 +49,9 @@ class CategoryTestClass(TestCase):
         self.category.delete_category()
         categories=Category.objects.all()
         self.assertTrue(len(categories)==0)
-
+"""
+Test methods for the Image class
+"""
 class ImageTestClass(TestCase):
 
     # set up method
