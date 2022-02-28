@@ -64,5 +64,8 @@ class Image(models.Model):
     def __str__(self):
         return self.name
         
+    """
+    Meta subclass to order images from latest
+    """
     class Meta:
-        ordering = ['-date_posted'] # order images from latest
+        ordering = ['-date_posted'] 
