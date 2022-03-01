@@ -1,1 +1,1 @@
-web: gunicorn picture_book.wsgi
+web: gunicorn picture_book.wsgi --log-file -
